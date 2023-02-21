@@ -1,0 +1,17 @@
+.list-card {
+  border-color: black;
+  border-width: 4px;
+  border-style: solid;
+  width: 300px;
+  height: 100px;
+}
+
+.list-label {
+  margin-left: 20px;
+  margin-bottom: 0px;
+}
+
+.list-value {
+  margin-left: 20px;
+  margin-top: 10px;
+}
