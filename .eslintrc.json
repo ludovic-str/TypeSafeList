@@ -1,0 +1,91 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "airbnb",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "overrides": [],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "autofix",
+    "prettier",
+    "react-hooks"
+  ],
+  "rules": {
+    "react/function-component-definition": [
+      "error",
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "react/jsx-fragments": ["error", "syntax"],
+    "react/jsx-no-duplicate-props": ["error", { "ignoreCase": true }],
+    "quotes": ["error", "double"],
+    "max-len": ["error", { "code": 160 }],
+    "react/require-default-props": "off",
+    "comma-dangle": "off",
+    "import/extensions": "off",
+    "react/destructuring-assignment": "off",
+    "import/no-unresolved": "off",
+    "react/no-unknown-property": "off",
+    "@typescript-eslint/no-explicit-any": "error",
+    "no-alert": "warn",
+    "react/no-deprecated": "error",
+    "react/hook-use-state": "error",
+    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
+    "react/jsx-uses-vars": "error",
+    "react/boolean-prop-naming": "off",
+    "react/react-in-jsx-scope": "off",
+    "arrow-body-style": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "import/prefer-default-export": "off",
+    "react/self-closing-comp": ["error", { "component": true, "html": true }],
+    "object-curly-newline": ["error", { "consistent": true }],
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          }
+        ]
+      }
+    ],
+    "autofix/no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_",
+        "ignoreRestSiblings": true,
+        "destructuredArrayIgnorePattern": "^_"
+      }
+    ],
+    "@typescript-eslint/consistent-type-imports": [
+      "error",
+      {
+        "prefer": "type-imports"
+      }
+    ]
+  }
+}
