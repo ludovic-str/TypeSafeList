@@ -2,11 +2,7 @@ import React from "react";
 import { v4 as uuidv4 } from "uuid";
 
 import "./styles.css";
-
-type LabelledValue<T> = {
-  label: string;
-  value: T;
-};
+import type { LabelledValue } from "../../types";
 
 interface ListProps<T> {
   items: LabelledValue<T>[];
