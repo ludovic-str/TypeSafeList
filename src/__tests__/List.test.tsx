@@ -9,6 +9,7 @@ import quotes from "../_mock/quotes";
 import users from "../_mock/users";
 import brands from "../_mock/brands";
 import complexUsers from "../_mock/complexUsers";
+import { objectWithErrorClass, nonConstantNonFormatedObjects } from "../_mock/errorObjects";
 
 test("Render empty list component", () => {
   render(<List items={[]} />);
@@ -48,4 +49,28 @@ test("Render list component with an object with object values", () => {
   expect(cards.length).toBe(complexUsers.length);
   expect(cards[0]).toHaveTextContent(complexUsers[0].username);
   expect(cards[0]).toHaveTextContent("[object Object]");
+});
+
+test("Render list component with an object with class values", () => {
+  render(<List items={objectWithErrorClass} />);
+
+  const cards = document.getElementsByClassName("list-card");
+  expect(cards.length).toBe(objectWithErrorClass.length);
+  expect(cards[0]).toHaveTextContent(objectWithErrorClass[0].label);
+});
+
+test("Render list component with an object with non constant and non formated values", () => {
+  render(<List items={listItemsReducer(nonConstantNonFormatedObjects, "id", "name")} />);
+
+  const cards = document.getElementsByClassName("list-card");
+  expect(cards.length).toBe(nonConstantNonFormatedObjects.length);
+  expect(cards[0]).toHaveTextContent(String(nonConstantNonFormatedObjects[0].id));
+  expect(cards[0]).toHaveTextContent(nonConstantNonFormatedObjects[0].name);
+});
+
+test("Render list component with empty array in function call", () => {
+  render(<List items={listItemsReducer([], "id", "name")} />);
+
+  const cards = document.getElementsByClassName("list-card");
+  expect(cards.length).toBe(0);
 });
