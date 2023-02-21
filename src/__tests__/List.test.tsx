@@ -8,6 +8,7 @@ import listItemsReducer from "../utils/listItemsReducer";
 import quotes from "../_mock/quotes";
 import users from "../_mock/users";
 import brands from "../_mock/brands";
+import complexUsers from "../_mock/complexUsers";
 
 test("Render empty list component", () => {
   render(<List items={[]} />);
@@ -40,4 +41,11 @@ test("Render list component with an object with array values", () => {
   expect(cards[0]).toHaveTextContent(brands[0].name);
 });
 
+test("Render list component with an object with object values", () => {
+  render(<List items={listItemsReducer(complexUsers, "username", "address")} />);
 
+  const cards = document.getElementsByClassName("list-card");
+  expect(cards.length).toBe(complexUsers.length);
+  expect(cards[0]).toHaveTextContent(complexUsers[0].username);
+  expect(cards[0]).toHaveTextContent("[object Object]");
+});
